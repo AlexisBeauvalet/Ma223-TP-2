@@ -21,7 +21,6 @@ def erreurs(A,B,X):
     for i in vect_erreur:
         erreur += abs(i)            
     erreur = erreur/n
-    print("n:",erreur)
     return(erreur)
 
 
@@ -38,7 +37,7 @@ all_erreur_Cholesky = []
 all_erreur_ResolutionLU = []
 all_erreur_linalg_solve = []
 
-for n in range(100,800,50):
+for n in range(100,1000,50):
     
     B = np.random.rand(n,1)
     M = np.random.rand(n,n)
@@ -95,7 +94,7 @@ ordonnee3 =  temps3
 ordonnee4 =  temps4
 ordonnee5 =  temps5
 
-plt.plot(abscisse, ordonnee, label="resolution cholesky")
+plt.plot(abscisse, ordonnee, label="cholesky",color = "red")
 plt.plot(abscisse, ordonnee3, label="LU")
 plt.plot(abscisse, ordonnee2, label="np.linalg.cholesky")
 plt.plot(abscisse, ordonnee4, label="np.linalg.solve")
@@ -116,7 +115,7 @@ graph_2_ordonnee4 = all_erreur_np_linalg_cholesky
 graph_2_ordonnee5 = all_erreur_linalg_solve
 
 plt.plot(abscisse,graph_2_ordonnee,label="Gauss")
-plt.plot(abscisse,graph_2_ordonnee2,label = "Cholesky")
+plt.plot(abscisse,graph_2_ordonnee2,label = "Cholesky",color = "red")
 plt.plot(abscisse,graph_2_ordonnee3,label = "LU")
 plt.plot(abscisse,graph_2_ordonnee4,label = "np.linalg.cholesky")
 plt.plot(abscisse,graph_2_ordonnee5,label = "np.linalg.solve")
